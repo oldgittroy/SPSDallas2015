@@ -48,6 +48,8 @@ function hideEditLinks() {
         
 }
 
+//code created by the Nasty Hacker
+//http://blog-aspc.azurewebsites.net/so-whats-on-the-megamenu/
 	
 function jqueryMM () {
 	var topmenuClass = '.ms-core-listMenu-horizontalBox';
