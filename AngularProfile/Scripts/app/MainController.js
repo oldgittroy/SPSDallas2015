@@ -9,26 +9,21 @@ mainController.controller("MainController", ["$scope",
 }
 ]);
 
-mainController.controller("MainController3", ["$scope", "TaxonomyMock", 
-	function($scope, TaxonomyMock){
+mainController.controller("MainController2", ["$scope", "UrlService", 
+	function($scope, UrlService){
 
-	$scope.status = TaxonomyMock.get();
+	$scope.status = UrlService.getBaseUrl();
 	
 	}
 ]);
 
-mainController.controller("MainController4", ["$scope", "TaxonomyConfig", 
-	function($scope, TaxonomyConfig){
+mainController.controller("MainController3", ["$scope", "UrlService", "ProfileREST", 
+	function($scope, UrlService, ProfileREST){
 
-	$scope.status = TaxonomyConfig.get();
+	var url = UrlService.getBaseUrl();
+	var profile = ProfileREST.query(url);
+	$scope.status = profile;
 	
 	}
 ]);
 
-mainController.controller("MainController5", ["$scope", "TaxonomyTransaction", 
-	function($scope, TaxonomyTransaction){
-
-	$scope.status = TaxonomyTransaction.execute();
-	
-	}
-]);

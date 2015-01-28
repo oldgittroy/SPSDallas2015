@@ -1,11 +1,9 @@
 ﻿var profileModule = angular.module("ProfileServiceModule", []);
 
-profileModule.factory("ProfileREST", ["$http","UrlService", function($http, UrlService){
+profileModule.factory("ProfileREST", ["$http", function($http){
   var  Profile = {};
 
- Profile.query = function(){
-	 
-	 var baseUrl = UrlService.getBaseUrl();
+ Profile.query = function(baseUrl){
 	 var restUrl = baseUrl + "/_api/SP.UserProfiles.PeopleManager/GetMyProperties";
 	 
 		return $http.get(restUrl);	
