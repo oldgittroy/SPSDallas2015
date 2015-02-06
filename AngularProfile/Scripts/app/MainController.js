@@ -21,8 +21,15 @@ mainController.controller("MainController3", ["$scope", "UrlService", "ProfileRE
 	function($scope, UrlService, ProfileREST){
 
 	var url = UrlService.getBaseUrl();
-	var profile = ProfileREST.query(url);
-	$scope.status = profile;
+	ProfileREST.query(url)
+	.success(function (data) {
+			//$scope.status = data.d.results;
+			$scope.status = data.DisplayName;
+		})
+		.error(function (error) {
+			$scope.status = "Unable to load user profiles" + error.message;
+		});
+	
 	
 	}
 ]);

@@ -4,14 +4,10 @@ profileModule.factory("ProfileREST", ["$http", function($http){
   var  Profile = {};
 
  Profile.query = function(baseUrl){
-	 var restUrl = baseUrl + "/_api/SP.UserProfiles.PeopleManager/GetMyProperties";
-	 
-		return $http.get(restUrl);	
-	 
+	 var restUrl = baseUrl + "/AngularProfile/_api/SP.UserProfiles.PeopleManager/GetMyProperties";
+	 return $http.get(restUrl);
     }//query()
-    
 return Profile;
-
 }//function($http)
 
 
